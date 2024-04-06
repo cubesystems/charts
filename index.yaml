@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  laravel:
+  - apiVersion: v2
+    appVersion: stable
+    created: "2024-04-06T11:02:19.517791+03:00"
+    description: A Helm chart for Kubernetes
+    digest: fa1080a9be55008a1b61b506f4be2f24bde9e891e1ddfe9873714373650b4155
+    name: laravel
+    type: application
+    urls:
+    - https://cubesystems.github.io/charts/packages/laravel-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-04-06T11:02:19.517406+03:00"
