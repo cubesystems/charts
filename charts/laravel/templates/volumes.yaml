@@ -1,0 +1,33 @@
+{{- if.Values.storage }}
+{{- range .Values.storage.volumes }}
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: {{ $.Release.Name }}-{{ $.Release.Namespace }}-{{ .name }}
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{ .size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "{{ $.Values.storage.hostPathBaseDirectory }}/{{ .name }}"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ .name }}
+spec:
+  volumeName: {{ $.Release.Name }}-{{ $.Release.Namespace }}-{{ .name }}
+  accessModes:
+    - {{ $.Values.storage.accessMode }}
+  storageClassName: {{ $.Values.storage.className }}
+  resources:
+    requests:
+      storage: {{ .size }}
+---
+{{- end }}
+{{- end }}

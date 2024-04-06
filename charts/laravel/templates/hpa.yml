@@ -1,0 +1,17 @@
+{{- range $key, $value := .Values.hpa }}
+{{- if ne (hasKey $value "enabled") true | or (eq $value.enabled true) }}
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: autoscaler-{{ $key }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ $key }}
+  minReplicas: {{ $value.minReplicas }}
+  maxReplicas: {{ $value.maxReplicas }}
+  targetCPUUtilizationPercentage: 80
+{{- end }}
+{{- end }}

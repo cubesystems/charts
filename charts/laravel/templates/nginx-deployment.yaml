@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      tier: nginx
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: {{ .Release.Name }}
+        tier: nginx
+        appVersion: {{ .Values.appVersion | quote }}
+    spec:
+      initContainers:
+        - name: setup-nginx
+{{- if.Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+{{- end }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['bash', '-c', './docker/nginx/prepare.sh']
+          envFrom: {{- toYaml .Values.nginx.envFrom | nindent 12 }}
+          volumeMounts:
+            - name: nginx-templates
+              mountPath: /nginx/templates
+            - name: nginx-snippets
+              mountPath: /nginx/snippets
+            - name: nginx-html
+              mountPath: /nginx/html
+      containers:
+        - name: nginx
+          image: "{{ .Values.nginx.image }}:{{ .Values.nginx.tag }}"
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 101 # nginx uid
+            runAsGroup: 101 # nginx gid
+          volumeMounts:
+            - name: nginx-templates
+              mountPath: /etc/nginx/templates
+              readOnly: true
+            - name: nginx-snippets
+              mountPath: /etc/nginx/snippets
+              readOnly: true
+            - name: nginx-html
+              mountPath: /usr/share/www/public
+              readOnly: true
+            - name: nginx-conf
+              mountPath: /etc/nginx/conf.d
+            - name: nginx-tmp
+              mountPath: /tmp
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+          ports:
+            - containerPort: 8080
+      volumes:
+        - name: nginx-tmp
+          emptyDir: {}
+        - name: nginx-conf
+          emptyDir: {}
+        - name: nginx-snippets
+          emptyDir: {}
+        - name: nginx-templates
+          emptyDir: {}
+        - name: nginx-html
+          emptyDir: {}
+      imagePullSecrets:
+        - name: {{ .Values.image.registrySecretName }}

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+{{- if .Values.nginx.nodePort }}
+  type: NodePort
+{{- end }}
+  ports:
+    - port: 80
+      targetPort: 8080
+{{- if .Values.nginx.nodePort }}
+      nodePort: {{ .Values.nginx.nodePort }}
+{{- end }}
+      name: nginx
+  selector:
+    tier: nginx

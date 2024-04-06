@@ -1,0 +1,10 @@
+{{- range $key, $value := .Values.deployments }}
+---
+{{$data := dict
+  "name" $key
+  "containerSpec" $value
+  "Release" $.Release
+  "Values" $.Values
+}}
+{{- include "artisan-process" $data  -}}
+{{- end }}

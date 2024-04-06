@@ -1,0 +1,30 @@
+{{- if.Values.database.operator }}
+apiVersion: kinda.rocks/v1beta1
+kind: Database
+metadata:
+  name: app
+spec:
+  secretName: db-config
+  instance: mysql
+  deletionProtected: true
+  backup:
+    enable: false
+    cron: "0 0 * * *"
+  credentials:
+    templates:
+      - name: DB_HOST
+        template: "{{ printf "{{ .Hostname }}" }}"
+        secret: true
+      - name: DB_PORT
+        template: "{{ printf "{{ .Port }}" }}"
+        secret: true
+      - name: DB_DATABASE
+        template: "{{ printf "{{ .Database }}" }}"
+        secret: true
+      - name: DB_USERNAME
+        template: "{{ printf "{{ .Username }}" }}"
+        secret: true
+      - name: DB_PASSWORD
+        template: "{{ printf "{{ .Password }}" }}"
+        secret: true
+{{- end }}

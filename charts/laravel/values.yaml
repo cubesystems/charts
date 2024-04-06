@@ -1,0 +1,50 @@
+ingress:
+  enabled: true
+
+database:
+  operator: false
+
+jobs:
+  migration:
+    enabled: true
+    args: ["./docker/scripts/prepare-laravel && php artisan migrate --force "]
+
+image: {}
+
+deploymentsSharedAttributes: {}
+
+
+services:
+  php-fpm:
+    enabled: true
+    port: 9000
+
+hpa:
+  php-fpm:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 10
+
+deployments:
+  php-fpm:
+    command: ['php-fpm']
+    ports:
+      - containerPort: 9000
+    startupProbe:
+      exec:
+        command: ['./docker/scripts/php-fpm-healthcheck']
+      initialDelaySeconds: 1
+      failureThreshold: 30
+      periodSeconds: 10
+    resources:
+      requests:
+        cpu: 100m
+      limits:
+        cpu: 1000m
+
+nginx:
+  image: nginxinc/nginx-unprivileged
+  tag: 1-alpine-slim
+  envFrom:
+    - configMapRef:
+        name: nginx-config
