@@ -13,6 +13,8 @@ image: {}
 
 deploymentsSharedAttributes: {}
 
+redis:
+  enabled: false
 
 services:
   php-fpm:
