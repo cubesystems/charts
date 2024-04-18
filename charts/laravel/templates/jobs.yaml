@@ -16,7 +16,7 @@ spec:
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           command: ["/bin/bash", "-c"]
           args: {{ $value.args | toJson }}
-          envFrom: {{- toYaml $.Values.deploymentsSharedAttributes.initEnvFrom | nindent 12 }}
+          envFrom: {{- toYaml $.Values.phpDeployment.initContainer.envFrom | nindent 12 }}
       restartPolicy: Never
       imagePullSecrets:
         - name: {{ $.Values.image.registrySecretName }}

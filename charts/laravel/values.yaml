@@ -7,11 +7,20 @@ database:
 jobs:
   migration:
     enabled: true
-    args: ["./docker/scripts/prepare-laravel && php artisan migrate --force "]
+    args: ["./docker/scripts/prepare-laravel && php artisan migrate --force"]
 
 image: {}
 
-deploymentsSharedAttributes: {}
+phpDeployment:
+  initContainer:
+    enabled: true
+    command: ["./docker/scripts/prepare-laravel"]
+    volumeMounts: []
+    envFrom: []
+  container:
+    securityContext: {}
+    volumeMounts: []
+  volumes: []
 
 redis:
   enabled: false
