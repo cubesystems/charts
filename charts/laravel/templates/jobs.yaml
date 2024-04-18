@@ -4,7 +4,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ $key }}-{{ randAlphaNum 5 | lower }}
+  name: {{ $.Values.resourcePrefix }}{{ $key }}-{{ randAlphaNum 5 | lower }}
   labels:
     appVersion: {{ $.Values.appVersion | quote }}
 spec:
@@ -16,10 +16,11 @@ spec:
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           command: ["/bin/bash", "-c"]
           args: {{ $value.args | toJson }}
-          envFrom: {{- toYaml $.Values.phpDeployment.initContainer.envFrom | nindent 12 }}
+          {{- $args := dict "envFrom" $.Values.phpDeployment.initContainer.envFrom "resourcePrefix" $.Values.resourcePrefix }}
+          {{- include "chart.modifiedEnvFrom" $args | nindent 10 }}
       restartPolicy: Never
       imagePullSecrets:
-        - name: {{ $.Values.image.registrySecretName }}
+        - name: {{ $.Values.resourcePrefix }}{{ $.Values.image.registrySecretName }}
   backoffLimit: 0
 {{- end }}
 {{- end }}

@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: app
+  name: {{ .Values.resourcePrefix }}app
   annotations: {{- toYaml $.Values.ingress.annotations | nindent 4 }}
 spec:
   ingressClassName: {{ .Values.ingress.class }}
@@ -10,11 +10,20 @@ spec:
 {{- range .Values.ingress.hosts }}
     - host: {{ . | quote }}
       http:
-        paths: {{- toYaml $.Values.ingress.paths | nindent 10 }}
+        paths:
+{{- range $.Values.ingress.paths }}
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: "{{ $.Values.resourcePrefix }}{{ .backend.service.name }}"
+                port:
+                  number: {{ .backend.service.port.number }}
+{{- end }}
 {{- end }}
 {{- if.Values.ingress.tls }}
   tls:
-    - secretName: app-tls
+    - secretName: {{ .Values.resourcePrefix }}app-tls
       hosts:
 {{- range .Values.ingress.hosts }}
         - {{ . | quote }}

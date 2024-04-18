@@ -4,7 +4,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: {{ $.Release.Name }}-{{ $.Release.Namespace }}-{{ .name }}
+  name: {{ $.Release.Name }}-{{ $.Release.Namespace }}-{{ .Values.resourcePrefix }}{{ .name }}
   labels:
     type: local
 spec:
@@ -19,9 +19,9 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ .name }}
+  name: {{ .Values.resourcePrefix }}{{ .name }}
 spec:
-  volumeName: {{ $.Release.Name }}-{{ $.Release.Namespace }}-{{ .name }}
+  volumeName: {{ $.Release.Name }}-{{ $.Release.Namespace }}-{{ .Values.resourcePrefix }}{{ .name }}
   accessModes:
     - {{ $.Values.storage.accessMode }}
   storageClassName: {{ $.Values.storage.className }}

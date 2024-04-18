@@ -2,11 +2,11 @@
 apiVersion: kinda.rocks/v1beta1
 kind: Database
 metadata:
-  name: app
+  name: {{ .Values.resourcePrefix }}app
 spec:
-  secretName: db-config
+  secretName: {{ .Values.resourcePrefix }}db-config
   instance: mysql
-  deletionProtected: true
+  deletionProtected: {{ .Values.database.deletionProtected }}
   backup:
     enable: false
     cron: "0 0 * * *"

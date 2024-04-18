@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: {{ .Values.resourcePrefix }}nginx
 spec:
   replicas: 1
   minReadySeconds: 5
@@ -13,13 +13,13 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}
-      tier: nginx
+      tier: {{ .Values.resourcePrefix }}nginx
   template:
     metadata:
       name: nginx
       labels:
         app: {{ .Release.Name }}
-        tier: nginx
+        tier: {{ .Values.resourcePrefix }}nginx
         appVersion: {{ .Values.appVersion | quote }}
     spec:
       initContainers:
@@ -29,7 +29,11 @@ spec:
 {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           command: ['bash', '-c', './docker/nginx/prepare.sh']
-          envFrom: {{- toYaml .Values.nginx.envFrom | nindent 12 }}
+          env:
+            - name: PHP_FPM_NAME
+              value:  "{{ .Values.resourcePrefix }}php-fpm"
+          {{- $envFromArgs := dict "envFrom" .Values.nginx.envFrom "resourcePrefix" .Values.resourcePrefix }}
+          {{- include "chart.modifiedEnvFrom" $envFromArgs | nindent 10 }}
           volumeMounts:
             - name: nginx-templates
               mountPath: /nginx/templates
@@ -59,6 +63,9 @@ spec:
               mountPath: /etc/nginx/conf.d
             - name: nginx-tmp
               mountPath: /tmp
+{{- if not (empty .Values.nginx.volumeMounts) }}
+            {{- toYaml .Values.nginx.volumeMounts | nindent 12 }}
+{{- end }}
           readinessProbe:
             httpGet:
               path: /ping
@@ -79,5 +86,9 @@ spec:
           emptyDir: {}
         - name: nginx-html
           emptyDir: {}
+{{- if not (empty .Values.nginx.volumes) }}
+        {{- $volumesArgs := dict "volumes" .Values.nginx.volumes "resourcePrefix" .Values.resourcePrefix }}
+        {{- include "chart.modifiedVolumes" $volumesArgs | nindent 6 }}
+{{- end }}
       imagePullSecrets:
-        - name: {{ .Values.image.registrySecretName }}
+        - name: {{ .Values.resourcePrefix }}{{ .Values.image.registrySecretName }}

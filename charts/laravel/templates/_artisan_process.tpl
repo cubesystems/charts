@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ kebabcase .name }}
+  name: {{ .Values.resourcePrefix }}{{ kebabcase .name }}
 spec:
   replicas: 1
   minReadySeconds: 5
@@ -14,13 +14,13 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}
-      tier: {{ kebabcase .name }}
+      tier: {{ .Values.resourcePrefix }}{{ kebabcase .name }}
   template:
     metadata:
       name: {{ kebabcase .name }}
       labels:
         app: {{ .Release.Name }}
-        tier: {{ kebabcase .name }}
+        tier: {{ .Values.resourcePrefix }}{{ kebabcase .name }}
         appVersion: {{ required "appVersion is required" $.Values.appVersion | quote }}
     spec:
 {{- if.Values.dnsConfig }}
@@ -35,7 +35,8 @@ spec:
           env:
             - name: APP_VERSION
               value: {{ $.Values.appVersion | quote }}
-          envFrom: {{- toYaml .Values.phpDeployment.initContainer.envFrom | nindent 12 }}
+          {{- $args := dict "envFrom" .Values.phpDeployment.initContainer.envFrom "resourcePrefix" .Values.resourcePrefix }}
+          {{- include "chart.modifiedEnvFrom" $args | nindent 10 }}
           volumeMounts: {{- toYaml .Values.phpDeployment.initContainer.volumeMounts | nindent 12 }}
 {{- end }}
       containers:
@@ -47,5 +48,5 @@ spec:
           {{- toYaml .containerSpec | nindent 10 }}
       volumes: {{- toYaml .Values.phpDeployment.volumes | nindent 8 }}
       imagePullSecrets:
-        - name: {{ .Values.image.registrySecretName }}
+        - name: {{ .Values.resourcePrefix }}{{ .Values.image.registrySecretName }}
 {{- end }}

@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $setKey }}
+  name: {{ $.Values.resourcePrefix }}{{ $setKey }}
 data:
   {{- range $key, $value := $setValues.data }}
   {{ $key }}: {{ $value | quote }}
