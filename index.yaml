@@ -3,7 +3,22 @@ entries:
   laravel:
   - apiVersion: v2
     appVersion: stable
-    created: "2024-04-07T20:07:12.559941+03:00"
+    created: "2024-04-18T15:09:12.422475+03:00"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.0.2
+    description: A Helm chart for Kubernetes
+    digest: d8a4d23f23cf940c2ab0014d195f75efb5cf73e7e876d99244781ba66edfe08d
+    name: laravel
+    type: application
+    urls:
+    - https://cubesystems.github.io/charts/packages/laravel-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
+    appVersion: stable
+    created: "2024-04-18T15:09:12.417112+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -18,7 +33,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: stable
-    created: "2024-04-07T20:07:12.554923+03:00"
+    created: "2024-04-18T15:09:12.412426+03:00"
     description: A Helm chart for Kubernetes
     digest: fa1080a9be55008a1b61b506f4be2f24bde9e891e1ddfe9873714373650b4155
     name: laravel
@@ -26,4 +41,4 @@ entries:
     urls:
     - https://cubesystems.github.io/charts/packages/laravel-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-07T20:07:12.554477+03:00"
+generated: "2024-04-18T15:09:12.412029+03:00"
