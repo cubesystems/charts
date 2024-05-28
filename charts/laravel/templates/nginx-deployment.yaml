@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Values.resourcePrefix }}nginx
 spec:
-  replicas: 1
+  replicas: {{ .Values.nginx.replicas }}
   minReadySeconds: 5
   strategy:
     type: RollingUpdate
