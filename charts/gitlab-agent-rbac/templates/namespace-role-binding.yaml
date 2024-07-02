@@ -1,0 +1,18 @@
+{{- range $agentKey, $agentSpec := .Values.agents }}
+{{- range $ns := $agentSpec.namespaces }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: {{ $ns }}
+  name: {{ $agentKey }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ $agentKey }}
+    namespace: {{ $agentKey }}
+roleRef:
+  kind: Role
+  name: {{ $agentKey }}
+  apiGroup: rbac.authorization.k8s.io
+---
+{{- end }}
+{{- end }}

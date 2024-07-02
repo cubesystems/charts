@@ -1,0 +1,8 @@
+{{- range $agentKey, $agentSpec := .Values.agents }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ $agentKey }}
+rules: {{- toYaml $.Values.rules.agent.clusterRole | nindent 2 }}
+---
+{{- end }}

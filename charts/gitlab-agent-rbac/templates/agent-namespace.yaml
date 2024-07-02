@@ -1,0 +1,7 @@
+{{- range $agentKey, $agentSpec := .Values.agents }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ $agentKey }}
+---
+{{- end }}

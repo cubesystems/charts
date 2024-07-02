@@ -1,0 +1,11 @@
+{{- range $agentKey, $agentSpec := .Values.agents }}
+{{- range $ns := $agentSpec.namespaces }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: {{ $ns }}
+  name: {{ $agentKey }}
+rules: {{- toYaml $.Values.rules.namespace.role | nindent 2 }}
+---
+{{- end }}
+{{- end }}
