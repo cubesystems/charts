@@ -18,13 +18,13 @@ agents:
 
 ```shell
 helm upgrade --install gitlab-agent gitlab/gitlab-agent \
-    --namespace AGENT_NAME_HERE \
-    --set serviceAccount.name=AGENT_NAME_HERE \
     --create-namespace \
     --set serviceAccount.create=false \
     --set rbac.create=false \
+    --set replicas=1 \
     --set image.tag=v17.1.1 \
+    --namespace AGENT_NAME_HERE \
+    --set serviceAccount.name=AGENT_NAME_HERE \
     --set config.token=TOKEN_HERE \
-    --set config.kasAddress=wss://GITLAB_INSTANCE_HERE/-/kubernetes-agent/ \
-    --set replicas=1
+    --set config.kasAddress=wss://GITLAB_INSTANCE_HERE/-/kubernetes-agent
 ```
