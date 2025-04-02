@@ -18,6 +18,7 @@ phpDeployment:
   initContainer:
     enabled: true
     command: ["./docker/scripts/prepare-laravel"]
+    args: []
     volumeMounts: []
     envFrom: []
   container:
@@ -60,6 +61,9 @@ nginx:
   image: nginxinc/nginx-unprivileged
   tag: 1-alpine-slim
   volumeMounts: []
+  initContainer:
+    command: ['bash', '-c', './docker/nginx/prepare.sh']
+    args: []
   volumes: []
   replicas: 1
   envFrom:

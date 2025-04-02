@@ -32,6 +32,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           command: {{- toYaml $.Values.phpDeployment.initContainer.command | nindent 12 }}
+          args: {{- toYaml $.Values.phpDeployment.initContainer.args | nindent 12 }}
           env:
             - name: APP_VERSION
               value: {{ $.Values.appVersion | quote }}
