@@ -48,6 +48,8 @@ spec:
           volumeMounts: {{- toYaml .Values.phpDeployment.container.volumeMounts | nindent 12 }}
           {{- toYaml .containerSpec | nindent 10 }}
       volumes: {{- toYaml .Values.phpDeployment.volumes | nindent 8 }}
+{{- if not (empty .Values.image.registrySecretName) }}
       imagePullSecrets:
         - name: {{ .Values.resourcePrefix }}{{ .Values.image.registrySecretName }}
+{{- end }}
 {{- end }}
