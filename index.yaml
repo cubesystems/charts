@@ -3,7 +3,7 @@ entries:
   gitlab-agent-rbac:
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.922011+03:00"
+    created: "2025-04-16T22:47:44.380992+03:00"
     description: A Helm chart for Kubernetes
     digest: 437fa5943af7693fd9832b94c36ad9c80d17404e1ef250ba7302d24093704983
     name: gitlab-agent-rbac
@@ -13,7 +13,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.921636+03:00"
+    created: "2025-04-16T22:47:44.380612+03:00"
     description: A Helm chart for Kubernetes
     digest: 829f8a9ab62c7acf3105da79852ad746d9f03a1329839fc34335eee7109449e4
     name: gitlab-agent-rbac
@@ -24,7 +24,22 @@ entries:
   laravel:
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.954684+03:00"
+    created: "2025-04-16T22:47:44.417341+03:00"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.0.2
+    description: A Helm chart for Kubernetes
+    digest: e22e1d900970930aae73fcf546d75b3ee601bd24df003e429db6bb8792b17c39
+    name: laravel
+    type: application
+    urls:
+    - https://cubesystems.github.io/charts/packages/laravel-1.3.5.tgz
+    version: 1.3.5
+  - apiVersion: v2
+    appVersion: stable
+    created: "2025-04-16T22:47:44.41384+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -39,7 +54,7 @@ entries:
     version: 1.3.4
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.950546+03:00"
+    created: "2025-04-16T22:47:44.409271+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -54,7 +69,7 @@ entries:
     version: 1.3.3
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.946395+03:00"
+    created: "2025-04-16T22:47:44.404685+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -69,7 +84,7 @@ entries:
     version: 1.3.2
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.941737+03:00"
+    created: "2025-04-16T22:47:44.400457+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -84,7 +99,7 @@ entries:
     version: 1.3.1
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.937186+03:00"
+    created: "2025-04-16T22:47:44.395831+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -99,7 +114,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.932522+03:00"
+    created: "2025-04-16T22:47:44.391229+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -114,7 +129,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.928133+03:00"
+    created: "2025-04-16T22:47:44.386867+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -129,7 +144,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-04-16T22:42:03.922436+03:00"
+    created: "2025-04-16T22:47:44.381432+03:00"
     description: A Helm chart for Kubernetes
     digest: fa1080a9be55008a1b61b506f4be2f24bde9e891e1ddfe9873714373650b4155
     name: laravel
@@ -137,4 +152,4 @@ entries:
     urls:
     - https://cubesystems.github.io/charts/packages/laravel-1.0.0.tgz
     version: 1.0.0
-generated: "2025-04-16T22:42:03.920954+03:00"
+generated: "2025-04-16T22:47:44.379873+03:00"
