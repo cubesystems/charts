@@ -19,7 +19,7 @@ spec:
           {{- $args := dict "envFrom" $.Values.phpDeployment.initContainer.envFrom "resourcePrefix" $.Values.resourcePrefix }}
           {{- include "chart.modifiedEnvFrom" $args | nindent 10 }}
       restartPolicy: Never
-{{- if not (empty .Values.image.registrySecretName) }}
+{{- if not (empty $.Values.image.registrySecretName) }}
       imagePullSecrets:
         - name: {{ $.Values.resourcePrefix }}{{ $.Values.image.registrySecretName }}
 {{- end }}
