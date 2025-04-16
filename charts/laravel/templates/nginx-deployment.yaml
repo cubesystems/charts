@@ -91,5 +91,7 @@ spec:
         {{- $volumesArgs := dict "volumes" .Values.nginx.volumes "resourcePrefix" .Values.resourcePrefix }}
         {{- include "chart.modifiedVolumes" $volumesArgs | nindent 6 }}
 {{- end }}
+{{- if not (empty .Values.image.registrySecretName) }}
       imagePullSecrets:
         - name: {{ .Values.resourcePrefix }}{{ .Values.image.registrySecretName }}
+{{- end }}
