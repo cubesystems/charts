@@ -1,5 +1,6 @@
 ingress:
   enabled: true
+  tlsSecretName: app-tls
 
 database:
   operator: false

@@ -23,7 +23,7 @@ spec:
 {{- end }}
 {{- if.Values.ingress.tls }}
   tls:
-    - secretName: {{ .Values.resourcePrefix }}app-tls
+    - secretName: {{ .Values.resourcePrefix }}{{ .Values.ingress.tlsSecretName }}
       hosts:
 {{- range .Values.ingress.hosts }}
         - {{ . | quote }}
