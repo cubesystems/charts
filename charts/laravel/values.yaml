@@ -12,6 +12,11 @@ jobs:
   migration:
     enabled: true
     args: ["./docker/scripts/prepare-laravel && php artisan migrate --force"]
+    resources:
+      requests:
+        cpu: 100m
+      limits:
+        cpu: 1000m
 
 image: {}
 
