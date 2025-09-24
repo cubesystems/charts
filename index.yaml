@@ -3,7 +3,17 @@ entries:
   gitlab-agent-rbac:
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.093802+03:00"
+    created: "2025-09-24T11:58:57.065381+03:00"
+    description: A Helm chart for Kubernetes
+    digest: 7a5d71a6f84d3b12543ac13500941612fd32219a4feb25ac89785373f83399ac
+    name: gitlab-agent-rbac
+    type: application
+    urls:
+    - https://cubesystems.github.io/charts/packages/gitlab-agent-rbac-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
+    appVersion: stable
+    created: "2025-09-24T11:58:57.06507+03:00"
     description: A Helm chart for Kubernetes
     digest: 437fa5943af7693fd9832b94c36ad9c80d17404e1ef250ba7302d24093704983
     name: gitlab-agent-rbac
@@ -13,7 +23,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.09285+03:00"
+    created: "2025-09-24T11:58:57.064585+03:00"
     description: A Helm chart for Kubernetes
     digest: 829f8a9ab62c7acf3105da79852ad746d9f03a1329839fc34335eee7109449e4
     name: gitlab-agent-rbac
@@ -24,7 +34,7 @@ entries:
   laravel:
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.145956+03:00"
+    created: "2025-09-24T11:58:57.120777+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -39,7 +49,7 @@ entries:
     version: 1.3.9
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.141973+03:00"
+    created: "2025-09-24T11:58:57.116769+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -54,7 +64,7 @@ entries:
     version: 1.3.8
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.137966+03:00"
+    created: "2025-09-24T11:58:57.112358+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -69,7 +79,7 @@ entries:
     version: 1.3.7
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.133783+03:00"
+    created: "2025-09-24T11:58:57.107764+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -84,7 +94,7 @@ entries:
     version: 1.3.6
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.129689+03:00"
+    created: "2025-09-24T11:58:57.103861+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -99,7 +109,7 @@ entries:
     version: 1.3.5
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.125898+03:00"
+    created: "2025-09-24T11:58:57.099501+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -114,7 +124,7 @@ entries:
     version: 1.3.4
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.121683+03:00"
+    created: "2025-09-24T11:58:57.095229+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -129,7 +139,7 @@ entries:
     version: 1.3.3
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.117407+03:00"
+    created: "2025-09-24T11:58:57.091322+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -144,7 +154,7 @@ entries:
     version: 1.3.2
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.113179+03:00"
+    created: "2025-09-24T11:58:57.086561+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -159,7 +169,7 @@ entries:
     version: 1.3.1
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.108569+03:00"
+    created: "2025-09-24T11:58:57.081679+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -174,7 +184,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.103908+03:00"
+    created: "2025-09-24T11:58:57.076969+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -189,7 +199,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.099334+03:00"
+    created: "2025-09-24T11:58:57.072206+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -204,7 +214,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-06-10T16:45:03.094193+03:00"
+    created: "2025-09-24T11:58:57.065877+03:00"
     description: A Helm chart for Kubernetes
     digest: fa1080a9be55008a1b61b506f4be2f24bde9e891e1ddfe9873714373650b4155
     name: laravel
@@ -212,4 +222,4 @@ entries:
     urls:
     - https://cubesystems.github.io/charts/packages/laravel-1.0.0.tgz
     version: 1.0.0
-generated: "2025-06-10T16:45:03.091811+03:00"
+generated: "2025-09-24T11:58:57.063725+03:00"

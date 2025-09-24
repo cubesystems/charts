@@ -5,4 +5,5 @@ metadata:
   namespace: {{ $agentKey }}
   name: {{ $agentKey }}
 rules: {{- toYaml $.Values.rules.agent.role | nindent 2 }}
+---
 {{- end }}
