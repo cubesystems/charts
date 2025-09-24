@@ -3,48 +3,38 @@ entries:
   gitlab-agent-rbac:
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:51.996583+03:00"
-    description: A Helm chart for Kubernetes
-    digest: b606c9e30b9dbae58370955a92c1c1a70cf5fbe6ec3411c5fa69a50e290d8f1d
-    name: gitlab-agent-rbac
-    type: application
-    urls:
-    - https://cubesystems.github.io/charts/packages/gitlab-agent-rbac-1.3.0.tgz
-    version: 1.3.0
-  - apiVersion: v2
-    appVersion: stable
-    created: "2025-09-24T12:17:51.996305+03:00"
+    created: "2025-09-24T12:17:08.155658+03:00"
     description: A Helm chart for Kubernetes
     digest: 7a5d71a6f84d3b12543ac13500941612fd32219a4feb25ac89785373f83399ac
     name: gitlab-agent-rbac
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/gitlab-agent-rbac-1.2.0.tgz
+    - https://cubesystems.github.io/charts/gitlab-agent-rbac-1.2.0.tgz
     version: 1.2.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:51.995819+03:00"
+    created: "2025-09-24T12:17:08.155351+03:00"
     description: A Helm chart for Kubernetes
     digest: 437fa5943af7693fd9832b94c36ad9c80d17404e1ef250ba7302d24093704983
     name: gitlab-agent-rbac
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/gitlab-agent-rbac-1.1.0.tgz
+    - https://cubesystems.github.io/charts/gitlab-agent-rbac-1.1.0.tgz
     version: 1.1.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:51.995314+03:00"
+    created: "2025-09-24T12:17:08.154989+03:00"
     description: A Helm chart for Kubernetes
     digest: 829f8a9ab62c7acf3105da79852ad746d9f03a1329839fc34335eee7109449e4
     name: gitlab-agent-rbac
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/gitlab-agent-rbac-1.0.0.tgz
+    - https://cubesystems.github.io/charts/gitlab-agent-rbac-1.0.0.tgz
     version: 1.0.0
   laravel:
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.050113+03:00"
+    created: "2025-09-24T12:17:08.207682+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -55,11 +45,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.9.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.9.tgz
     version: 1.3.9
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.045741+03:00"
+    created: "2025-09-24T12:17:08.20324+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -70,11 +60,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.8.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.8.tgz
     version: 1.3.8
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.04144+03:00"
+    created: "2025-09-24T12:17:08.199042+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -85,11 +75,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.7.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.7.tgz
     version: 1.3.7
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.037711+03:00"
+    created: "2025-09-24T12:17:08.195252+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -100,11 +90,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.6.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.6.tgz
     version: 1.3.6
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.033593+03:00"
+    created: "2025-09-24T12:17:08.190852+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -115,11 +105,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.5.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.5.tgz
     version: 1.3.5
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.02961+03:00"
+    created: "2025-09-24T12:17:08.186529+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -130,11 +120,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.4.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.4.tgz
     version: 1.3.4
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.025158+03:00"
+    created: "2025-09-24T12:17:08.182775+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -145,11 +135,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.3.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.3.tgz
     version: 1.3.3
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.020996+03:00"
+    created: "2025-09-24T12:17:08.178253+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -160,11 +150,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.2.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.2.tgz
     version: 1.3.2
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.016667+03:00"
+    created: "2025-09-24T12:17:08.173811+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -175,11 +165,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.1.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.1.tgz
     version: 1.3.1
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.012047+03:00"
+    created: "2025-09-24T12:17:08.169636+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -190,11 +180,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.3.0.tgz
+    - https://cubesystems.github.io/charts/laravel-1.3.0.tgz
     version: 1.3.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.006997+03:00"
+    created: "2025-09-24T12:17:08.165227+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -205,11 +195,11 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.2.0.tgz
+    - https://cubesystems.github.io/charts/laravel-1.2.0.tgz
     version: 1.2.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:52.002524+03:00"
+    created: "2025-09-24T12:17:08.161052+03:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -220,16 +210,16 @@ entries:
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.1.0.tgz
+    - https://cubesystems.github.io/charts/laravel-1.1.0.tgz
     version: 1.1.0
   - apiVersion: v2
     appVersion: stable
-    created: "2025-09-24T12:17:51.997029+03:00"
+    created: "2025-09-24T12:17:08.155995+03:00"
     description: A Helm chart for Kubernetes
     digest: fa1080a9be55008a1b61b506f4be2f24bde9e891e1ddfe9873714373650b4155
     name: laravel
     type: application
     urls:
-    - https://cubesystems.github.io/charts/packages/laravel-1.0.0.tgz
+    - https://cubesystems.github.io/charts/laravel-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-24T12:17:51.99467+03:00"
+generated: "2025-09-24T12:17:08.154371+03:00"
