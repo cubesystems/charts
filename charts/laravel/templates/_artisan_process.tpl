@@ -21,7 +21,7 @@ spec:
       labels:
         app: {{ .Release.Name }}
         tier: {{ .Values.resourcePrefix }}{{ kebabcase .name }}
-        appVersion: {{ required "appVersion is required" $.Values.appVersion | quote }}
+        appVersion: {{ include "chart.appVersion" . | trunc 63 | trimAll "-_." | quote }}
     spec:
 {{- if.Values.dnsConfig }}
       dnsConfig: {{- toYaml .Values.dnsConfig | nindent 8 }}
@@ -38,7 +38,7 @@ spec:
           args: {{- toYaml $.Values.phpDeployment.initContainer.args | nindent 12 }}
           env:
             - name: APP_VERSION
-              value: {{ $.Values.appVersion | quote }}
+              value: {{ include "chart.appVersion" . | quote }}
           {{- $args := dict "envFrom" .Values.phpDeployment.initContainer.envFrom "resourcePrefix" .Values.resourcePrefix }}
           {{- include "chart.modifiedEnvFrom" $args | nindent 10 }}
           volumeMounts: {{- toYaml .Values.phpDeployment.initContainer.volumeMounts | nindent 12 }}

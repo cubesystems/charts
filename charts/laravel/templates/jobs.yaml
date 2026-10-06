@@ -6,7 +6,7 @@ kind: Job
 metadata:
   name: {{ $.Values.resourcePrefix }}{{ $key }}-{{ randAlphaNum 5 | lower }}
   labels:
-    appVersion: {{ $.Values.appVersion | quote }}
+    appVersion: {{ include "chart.appVersion" $ | trunc 63 | trimAll "-_." | quote }}
 spec:
   template:
     spec:

@@ -1,3 +1,8 @@
+{{/* Stable application version unless explicitly overridden (for example by --restart). */}}
+{{- define "chart.appVersion" -}}
+{{- default (default "stable" .Values.image.tag) .Values.appVersion -}}
+{{- end -}}
+
 {{/*
 Generate modified envFrom from a passed list with resourcePrefix
 */}}

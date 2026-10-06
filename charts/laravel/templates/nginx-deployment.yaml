@@ -20,7 +20,7 @@ spec:
       labels:
         app: {{ .Release.Name }}
         tier: {{ .Values.resourcePrefix }}nginx
-        appVersion: {{ .Values.appVersion | quote }}
+        appVersion: {{ include "chart.appVersion" . | trunc 63 | trimAll "-_." | quote }}
     spec:
       initContainers:
         - name: setup-nginx
