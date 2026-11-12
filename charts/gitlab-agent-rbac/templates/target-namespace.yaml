@@ -1,0 +1,21 @@
+{{- $namespaces := dict -}}
+{{- range $agent := .Values.agents -}}
+{{- range $namespace := $agent.namespaces -}}
+{{- if and (ne $namespace $.Release.Namespace) (not (hasKey $.Values.agents $namespace)) -}}
+{{- $_ := set $namespaces $namespace true -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- range $namespace := keys $namespaces | sortAlpha }}
+{{- $existing := lookup "v1" "Namespace" "" $namespace }}
+{{- $annotations := dig "metadata" "annotations" (dict) $existing | default dict }}
+{{- if or (not $existing) (and (eq (get $annotations "meta.helm.sh/release-name") $.Release.Name) (eq (get $annotations "meta.helm.sh/release-namespace") $.Release.Namespace)) }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ $namespace | quote }}
+  annotations:
+    helm.sh/resource-policy: keep
+---
+{{- end }}
+{{- end }}

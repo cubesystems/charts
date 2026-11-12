@@ -3,6 +3,16 @@ entries:
   gitlab-agent-rbac:
   - apiVersion: v2
     appVersion: stable
+    created: "2026-11-12T22:52:14.897033+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 2cff892befba7ae1f208335328862db7acc9f265e34b41c32e2e766beec0bc8f
+    name: gitlab-agent-rbac
+    type: application
+    urls:
+    - https://cubesystems.github.io/charts/packages/gitlab-agent-rbac-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: stable
     created: "2026-10-06T10:10:42.640041+03:00"
     description: A Helm chart for Kubernetes
     digest: b606c9e30b9dbae58370955a92c1c1a70cf5fbe6ec3411c5fa69a50e290d8f1d
@@ -277,4 +287,4 @@ entries:
     urls:
     - https://cubesystems.github.io/charts/packages/laravel-1.0.0.tgz
     version: 1.0.0
-generated: "2026-10-06T10:10:42.637483+03:00"
+generated: "2026-11-12T22:52:14.896514+02:00"
