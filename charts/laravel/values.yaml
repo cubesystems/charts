@@ -64,7 +64,7 @@ deployments:
         cpu: 1000m
 
 nginx:
-  image: nginxinc/nginx-unprivileged
+  image: nginx/nginx-unprivileged
   tag: 1-alpine-slim
   volumeMounts: []
   initContainer:
